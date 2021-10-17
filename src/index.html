@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Sofka Trivia</title>
+  </head>
+  <body>
+    <!-- <img src="./assets/img/trivia2.jpg" alt="webpack-logo" /> -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Reglas del juego</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Ingrese su nombre:</label>
+                <input type="text" class="form-control" id="nombreJugador">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <ol>
+                  <li>Por cada pregunta bien contestada obtiene un punto.</li>
+                  <li>Puede retirarse antes sí lo desea con su acumulado.</li>
+                  <li>Si falla con la respuesta pierde el acumulado.</li>
+                </ol>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" id="inicio" class="btn btn-primary" data-bs-dismiss="modal">Empezar juego</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <container>
+      <header>
+        <nav class="navbar navbar-dark bg-dark">
+          <div class="container-fluid">
+            <img src="./assets/img/trivia2.jpg" alt="" width="300" height="80" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="#" >
+              Vamos a jugar! <span id="jugador"></span>
+            </a>
+            <button class="btn btn-outline-success btn-lg"  data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" id="inicio">Empezar juego</button>
+          </div>
+        </nav>
+      </header>
+      <div class="col-12 container-fluid mt-2">
+        <div class="btn-toolbar d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group me-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-warning categoria1">1</button>
+            <button type="button" class="btn btn-warning categoria1">2</button>
+            <button type="button" class="btn btn-warning categoria1">3</button>
+            <button type="button" class="btn btn-warning categoria1">4</button>
+            <button type="button" class="btn btn-warning categoria1">5</button>
+          </div>
+          <div class="btn-group me-2" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-warning categoria2">6</button>
+            <button type="button" class="btn btn-warning categoria2">7</button>
+            <button type="button" class="btn btn-warning categoria2">8</button>
+            <button type="button" class="btn btn-warning categoria2">9</button>
+            <button type="button" class="btn btn-warning categoria2">10</button>
+          </div>
+          <div class="btn-group me-2" role="group" aria-label="Third group">
+            <button type="button" class="btn btn-success categoria3">11</button>
+            <button type="button" class="btn btn-success categoria3">12</button>
+            <button type="button" class="btn btn-success categoria3">13</button>
+            <button type="button" class="btn btn-success categoria3">14</button>
+            <button type="button" class="btn btn-success categoria3">15</button>
+          </div>
+          <div class="btn-group me-2" role="group" aria-label="Fourth group">
+            <button type="button" class="btn btn-success categoria4">16</button>
+            <button type="button" class="btn btn-success categoria4">17</button>
+            <button type="button" class="btn btn-success categoria4">18</button>
+            <button type="button" class="btn btn-success categoria4">19</button>
+            <button type="button" class="btn btn-success categoria4">20</button>
+          </div>
+          <div class="btn-group me-2" role="group" aria-label="Fifth group">
+            <button type="button" class="btn btn-danger categoria5">21</button>
+            <button type="button" class="btn btn-danger categoria5">22</button>
+            <button type="button" class="btn btn-danger categoria5">23</button>
+            <button type="button" class="btn btn-danger categoria5">24</button>
+            <button type="button" class="btn btn-danger categoria5">55</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-2 d-flex flex-column mt-4">
+              <h2>Nivel Dificultad</h2>
+              <div class="btn-group mt-3" role="group" aria-label="Basic example">
+                <button type="button" data-level="easy" class="btn btn-warning">Baja</button>
+                <button type="button" data-level="medium" class="btn btn-success">Media</button>
+                <button type="button" data-level="hard" class="btn btn-danger">Alta</button>
+              </div>
+
+              <div class="btn-group mt-3 justify-content-center" role="group" aria-label="Basic example">
+                <div class=" categorias col-6 mt-2 d-flex flex-column justify-content-center">
+                  <h3>Categorías</h3>
+                  <input type="checkbox" class="btn-check btn-category" id="btn-check-celebrities" autocomplete="off" data-category="Celebrities" data-numero="26">
+                  <label class="btn btn-outline-primary" for="btn-check-outlined">Celebridades</label><br>
+
+                  <input type="checkbox" data-categoria="history" class="btn-check btn-category" id="btn-check-historia" autocomplete="off" data-category="History" data-numero="23">
+                  <label class="btn btn-outline-primary" for="btn-check-outlined">Historia</label><br>
+
+                  <input type="checkbox" class="btn-check btn-category" id="btn-check-deporte" autocomplete="off" data-category="Sports" data-numero="21">
+                  <label class="btn btn-outline-primary" for="btn-check-outlined">Deporte</label><br>
+
+                  <input type="checkbox" class="btn-check btn-category" id="btn-check-animales" autocomplete="off" data-category="Animals" data-numero="27">
+                  <label class="btn btn-outline-primary" for="btn-check-outlined">Animales</label><br>
+
+                  <input type="checkbox" class="btn-check btn-category" id="btn-check-geo" autocomplete="off"  data-category="Geography" data-numero="22">
+                  <label class="btn btn-outline-primary" for="btn-check-outlined">Geografía</label><br>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-8 mt-4" id="seccionPreguntas">
+              <div class="card text-center card-pregunta">
+                <div class="card-header">
+                  Elija una opción, sólo una es verdadera!
+                </div>
+                <div class="card-body" id="card-body">
+                  
+                  <div class="d-inline-flex justify-content-center question" id="question"></div>
+                  <div class="d-inline-flex justify-content-between">
+                    <div class="preguntas row respuestas" id="respuestas"></div>
+                  </div>  
+                </div>
+
+                <div class="card-footer d-flex flex-column">
+                  <button type="button" class="btn btn-info btn-lg" id="siguiente" >Siguiente pregunta</button>
+                  <button type="button" class="btn btn-dark btn-lg mt-3" id="retiro" >Retiro Voluntario</button>
+                </div>
+              </div>
+
+              <!-- onclick="siguienteRonda()"
+              onclick="terminarJuego()" -->
+            
+            </div>
+        
+            <div class="resultado col-2 mt-4">
+              <h1>Resultados:</h1>
+              <button type="button" class="btn btn-lg btn-primary" id="acumulado" data-acumulado>
+                Acumulado <span class="badge bg-secondary" id="textAcumulado">0</span>
+              </button>
+              <button type="button" class="btn btn-primary mt-3" id="premioTotal" data-premioTotal>
+                Premio Total <span class="badge bg-success" id="textPremioTotal">0</span>
+              </button>
+          </div>
+      </div>
+    </container>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
