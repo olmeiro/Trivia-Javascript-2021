@@ -1,12 +1,11 @@
 import "./styles.css";
-import { tituloPregunta, cardRespuestas } from './componentes/cardPregunta';
-
 
 import { getPreguntas } from "./componentes/getPreguntas";
 import { categoriaAleatoria } from "./componentes/categoriaAleatoria";
 import { mostrarPreguntaDOM } from "./componentes/mostrarPreguntasDOM";
 import { borrarPreguntaDOM } from "./componentes/borrarPreguntasDOM";
-
+import { terminarJuego } from "./componentes/terminarJuego";
+import { apagarBtnCategoria } from "./componentes/apagarBtnCategoria";
 
 const spanJugador = document.getElementById('jugador');
 const inputNombre = document.getElementById('nombreJugador');
@@ -19,6 +18,7 @@ const btnRetiro = document.getElementById('retiro');
 
 btnEmpezar.addEventListener('click', iniciarJuego);
 btnRetiro.addEventListener('click', terminarJuego);
+btnSiguiente.setAttribute('disabled', true);
 
 let rondaActual = 1;
 
@@ -32,6 +32,7 @@ function iniciarJuego (){
     textAcumulado.innerHTML = 0;
     textPremioTotal.innerHTML = 0;
     btnSiguiente.textContent = 'Siguiente pregunta';
+    btnSiguiente.removeAttribute('disabled');
 
     const {cantidad, categoria, dificultad} = categoriaAleatoria();
     console.log("rondaActualInicio: ", rondaActual);
@@ -45,17 +46,18 @@ function extraerSiguientePregunta (rondaActual=1) {
     borrarPreguntaDOM();
 
     const dataPreguntas = JSON.parse(localStorage.getItem(`${rondaActual}`));
+    console.log(dataPreguntas);
 
     const aleatorio = Math.floor(Math.random()*dataPreguntas.results.length);
     const preguntaAleatoria = dataPreguntas.results[aleatorio];
+    
+    const categoriaAleatoria = dataPreguntas.results[aleatorio].category;
+    
+    // apagarBtnCategoria(categoriaAleatoria);//descomentar cuando tenga lista la parte de las rondas
 
     const question = preguntaAleatoria.question;
     const correct_answer = preguntaAleatoria.correct_answer;
     const incorrect_answers = preguntaAleatoria.incorrect_answers;
 
-    mostrarPreguntaDOM(question, correct_answer, incorrect_answers);
-}
-
-function terminarJuego() {
-    alert("el juego ha terminado");
+    mostrarPreguntaDOM(question, correct_answer, incorrect_answers, categoriaAleatoria);
 }

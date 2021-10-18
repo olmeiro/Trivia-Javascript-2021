@@ -16,10 +16,4 @@ export class Juego {
     get getParticipante(){
         return this.participante;
     }
-
-    inicioJuego(){
-
-    }
-
-
 }

@@ -106,31 +106,23 @@
               <div class="btn-group mt-3 justify-content-center" role="group" aria-label="Basic example">
                 <div class=" categorias col-6 mt-2 d-flex flex-column justify-content-center">
                   <h3>Categorías</h3>
-                  <input type="checkbox" class="btn-check btn-category" id="btn-check-celebrities" autocomplete="off" data-category="Celebrities" data-numero="26">
-                  <label class="btn btn-outline-primary" for="btn-check-outlined">Celebridades</label><br>
-
-                  <input type="checkbox" data-categoria="history" class="btn-check btn-category" id="btn-check-historia" autocomplete="off" data-category="History" data-numero="23">
-                  <label class="btn btn-outline-primary" for="btn-check-outlined">Historia</label><br>
-
-                  <input type="checkbox" class="btn-check btn-category" id="btn-check-deporte" autocomplete="off" data-category="Sports" data-numero="21">
-                  <label class="btn btn-outline-primary" for="btn-check-outlined">Deporte</label><br>
-
-                  <input type="checkbox" class="btn-check btn-category" id="btn-check-animales" autocomplete="off" data-category="Animals" data-numero="27">
-                  <label class="btn btn-outline-primary" for="btn-check-outlined">Animales</label><br>
-
-                  <input type="checkbox" class="btn-check btn-category" id="btn-check-geo" autocomplete="off"  data-category="Geography" data-numero="22">
-                  <label class="btn btn-outline-primary" for="btn-check-outlined">Geografía</label><br>
+                  <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-celebrities" data-category="Celebrities" data-numero="26">Celebridades</button>
+                  <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-historia" data-category="History" data-numero="23">Historia</button>
+                  <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-deporte" data-category="Sports" data-numero="21">Deporte</button>
+                  <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-animales" data-category="Animals" data-numero="27">Animales</button>
+                  <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-geo" data-category="Geography" data-numero="22">Animals</button>
                 </div>
               </div>
             </div>
         
             <div class="col-8 mt-4" id="seccionPreguntas">
               <div class="card text-center card-pregunta">
+
                 <div class="card-header">
                   Elija una opción, sólo una es verdadera!
                 </div>
+                
                 <div class="card-body" id="card-body">
-                  
                   <div class="d-inline-flex justify-content-center question" id="question"><h1>Pregunta :</h1></div>
                   <div class="d-inline-flex justify-content-between">
                     <div class="preguntas row respuestas" id="respuestas"><h1>Respuestas</h1></div>
@@ -142,19 +134,15 @@
                   <button type="button" class="btn btn-dark btn-lg mt-3" id="retiro" >Retiro Voluntario</button>
                 </div>
               </div>
-
-              <!-- onclick="siguienteRonda()"
-              onclick="terminarJuego()" -->
-            
             </div>
         
             <div class="resultado col-2 mt-4">
               <h1>Resultados:</h1>
               <button type="button" class="btn btn-lg btn-primary" id="acumulado" data-acumulado>
-                Acumulado <span class="badge bg-secondary" id="textAcumulado"></span>
+                Acumulado <span class="badge bg-secondary textAcumulado" id="textAcumulado"></span>
               </button>
               <button type="button" class="btn btn-primary mt-3" id="premioTotal" data-premioTotal>
-                Premio Total <span class="badge bg-success" id="textPremioTotal"></span>
+                Premio Total <span class="badge bg-success textPremioTotal" id="textPremioTotal"></span>
               </button>
           </div>
       </div>

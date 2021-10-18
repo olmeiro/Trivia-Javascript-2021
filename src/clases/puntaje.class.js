@@ -6,15 +6,23 @@ export class Puntaje {
         this.maximo = 25;
     }
 
-    get getMaximo(){
-        return this.maximo;
+    set setAcumulado(num) {
+        this.acumulado = num;
     }
 
     get getAcumulado(){
         return this.acumulado;
     }
 
+    get getMaximo(){
+        return this.maximo;
+    }
+
     aumentarAcumulado(){
         return this.acumulado = this.acumulado + 1;
+    }
+
+    resetAcumulado (){
+        return this.acumulado = 0;
     }
 }
