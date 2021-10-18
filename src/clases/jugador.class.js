@@ -1,4 +1,5 @@
 export class Jugador {
+
     constructor(nombre, puntajeAcumulado, puntajeFinal){
         this.nombre = nombre;
         this.puntajeAcumulado= puntajeAcumulado;

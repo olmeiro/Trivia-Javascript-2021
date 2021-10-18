@@ -1,5 +1,4 @@
-
-import { puntaje } from "./mostrarPreguntasDOM";
+import { puntaje } from '../index';
 
 const spanJugador = document.getElementById('jugador');
 const inputNombre = document.getElementById('nombreJugador');
@@ -22,5 +21,3 @@ export function terminarJuego() {
   const resetPuntaje = puntaje.resetAcumulado();
   textAcumulado.innerHTML = 0;
 }
-
-// boton.setAttribute('disabled', true);

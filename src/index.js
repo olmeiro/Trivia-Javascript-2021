@@ -1,11 +1,13 @@
 import "./styles.css";
 
+import { Juego, Jugador, Puntaje } from './clases/index';
+
 import { getPreguntas } from "./componentes/getPreguntas";
 import { categoriaAleatoria } from "./componentes/categoriaAleatoria";
 import { mostrarPreguntaDOM } from "./componentes/mostrarPreguntasDOM";
 import { borrarPreguntaDOM } from "./componentes/borrarPreguntasDOM";
 import { terminarJuego } from "./componentes/terminarJuego";
-import { apagarBtnCategoria } from "./componentes/apagarBtnCategoria";
+
 
 const spanJugador = document.getElementById('jugador');
 const inputNombre = document.getElementById('nombreJugador');
@@ -26,6 +28,11 @@ btnSiguiente.addEventListener('click', () => {
     extraerSiguientePregunta();
 })
 
+//Instancias:
+export const jugador = new Jugador();
+export const puntaje = new Puntaje();
+export const juego = new Juego();
+
 function iniciarJuego (){
 
     spanJugador.innerHTML = inputNombre.value;
@@ -35,9 +42,10 @@ function iniciarJuego (){
     btnSiguiente.removeAttribute('disabled');
 
     const {cantidad, categoria, dificultad} = categoriaAleatoria();
-    console.log("rondaActualInicio: ", rondaActual);
-    
     getPreguntas(cantidad, categoria, dificultad, rondaActual);
+
+    jugador.setNombre = inputNombre.value;
+    juego.setParticipante = jugador.nombre;
 
     extraerSiguientePregunta();
 }
@@ -45,19 +53,26 @@ function iniciarJuego (){
 function extraerSiguientePregunta (rondaActual=1) {
     borrarPreguntaDOM();
 
-    const dataPreguntas = JSON.parse(localStorage.getItem(`${rondaActual}`));
-    console.log(dataPreguntas);
-
-    const aleatorio = Math.floor(Math.random()*dataPreguntas.results.length);
-    const preguntaAleatoria = dataPreguntas.results[aleatorio];
+    try {
+        const dataPreguntas = JSON.parse(localStorage.getItem(`${rondaActual}`));
+        console.log(dataPreguntas);
     
-    const categoriaAleatoria = dataPreguntas.results[aleatorio].category;
+        const aleatorio = Math.floor(Math.random()*dataPreguntas.results.length);
+        const preguntaAleatoria = dataPreguntas.results[aleatorio];
+        
+        const categoriaAleatoria = dataPreguntas.results[aleatorio].category;
+        
+        // apagarBtnCategoria(categoriaAleatoria);//descomentar cuando tenga lista la parte de las rondas
     
-    // apagarBtnCategoria(categoriaAleatoria);//descomentar cuando tenga lista la parte de las rondas
+        const question = preguntaAleatoria.question;
+        const correct_answer = preguntaAleatoria.correct_answer;
+        const incorrect_answers = preguntaAleatoria.incorrect_answers;
+    
+        mostrarPreguntaDOM(question, correct_answer, incorrect_answers, categoriaAleatoria);
+    } catch (error) {
+        console.log(error);
+        Swal.fire('Problemas con el servidor, empiece nuevo juego.');
+    }
 
-    const question = preguntaAleatoria.question;
-    const correct_answer = preguntaAleatoria.correct_answer;
-    const incorrect_answers = preguntaAleatoria.incorrect_answers;
-
-    mostrarPreguntaDOM(question, correct_answer, incorrect_answers, categoriaAleatoria);
+  
 }

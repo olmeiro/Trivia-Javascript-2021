@@ -1,8 +1,8 @@
 import { cardRespuestas, tituloPregunta } from "./cardPregunta";
-import { Puntaje } from '../clases/puntaje.class';
-// import { apagarBtnCategoria } from "./apagarBtnCategoria";
 
-export const puntaje = new Puntaje();
+import { juego, jugador, puntaje } from '../index';
+
+const btnSiguiente = document.getElementById('siguiente');
 
 export function mostrarPreguntaDOM(question, correct_answer, incorrect_answers, categoriaAleatoria ){
 
@@ -16,29 +16,68 @@ export function mostrarPreguntaDOM(question, correct_answer, incorrect_answers, 
         
         if(dataAnswer === 'correct_answer'){
             boton.onclick = respuestaCorrecta;
-           
-            console.log("son iguales y ahora con disabled");
         }else{
             boton.onclick = respuestaIncorrecta;
         }
     }); 
-    // apagarBtnCategoria(categoriaAleatoria);
 }
 
 function respuestaCorrecta(e) {
-    console.log(e);
     
     puntaje.aumentarAcumulado();
     const puntajeAcumulado = puntaje.getAcumulado;
 
-    textAcumulado.textContent = puntajeAcumulado;
+    jugador.setPuntajeAcumulado = puntajeAcumulado;
+    juego.setPuntajeFinal = puntajeAcumulado;
 
+    console.log("participanteId: ", juego.id);
+    console.log("participanteJuego: ", juego.getParticipante);
+    console.log("participantePuntajeAcumulado", juego.getPuntajeFinal);
+
+    const idJugador = juego.id;
+    const nombreJugador = juego.getParticipante;
+    const puntosFinal = juego.getPuntajeFinal;
+
+    const datosFinal = {
+        idJugador,
+        nombreJugador,
+        puntosFinal
+    }
+
+    juego.datosJuegoFinal(datosFinal);
+
+    textAcumulado.textContent = puntajeAcumulado;
+    
     Swal.fire('Respuesta correcta. Ganas un punto');
     e.target.setAttribute('disabled', true);
     
 }
 
 function respuestaIncorrecta(){
+    puntaje.resetAcumulado();
+    const puntajeAcumulado = puntaje.getAcumulado;
+    textAcumulado.textContent = puntajeAcumulado;
+
+    jugador.setPuntajeAcumulado = puntajeAcumulado;
+    juego.setPuntajeFinal = puntajeAcumulado;
+    console.log("participanteId: ", juego.id);
+    console.log("participanteJuego: ", juego.getParticipante);
+    console.log("participantePuntajeAcumulado: ", juego.getPuntajeFinal);
+
+    const idJugador = juego.id;
+    const nombreJugador = juego.getParticipante;
+    const puntosFinal = juego.getPuntajeFinal;
+
+    const datosFinal = {
+        idJugador,
+        nombreJugador,
+        puntosFinal
+    }
+
+    juego.datosJuegoFinal(datosFinal);
+    
+    btnSiguiente.setAttribute('disabled', true);
+    console.log(puntaje.getAcumulado);
     Swal.fire({
         icon: 'Respuesta incorrecta',
         title: 'Oops...',

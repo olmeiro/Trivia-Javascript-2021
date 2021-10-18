@@ -1,3 +1,4 @@
+//TODO: generar lógica para implementar la clase
 
 export class Ronda{
     constructor(){
