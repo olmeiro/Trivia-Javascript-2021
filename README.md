@@ -1,8 +1,8 @@
-#Reto preguntas y respuestas Sofka-2021
+# Reto preguntas y respuestas Sofka-2021
 
 Este es el bosquejo inicial para la aplicación de preguntas y respuestas utilizando webpack.
 
-###Notas:
+### Notas:
 
 Para usar el proyecto clone el repositorio.
 
@@ -17,6 +17,6 @@ npm start
 ```
 
 
-###Cualquier aporte al proyecto sera de gran utilidad, estamos aprendiendo, seguimos aprendiendo!
+### Cualquier aporte al proyecto sera de gran utilidad, estamos aprendiendo, seguimos aprendiendo!
 
-Realizado por : Olmeiro Orozco Ortiz-18/10-2021.
+### Realizado por : Olmeiro Orozco Ortiz-18/10-2021.
