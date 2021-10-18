@@ -1,5 +1,7 @@
 
 const divTituloPregunta = document.querySelector('.question');
+const divRespuestas = document.querySelector('.respuestas');
+
 
  const tituloPregunta = (question) => {
     const htmlTitleQuestion = `<h3>${question}</h3>`;
@@ -12,7 +14,6 @@ const divTituloPregunta = document.querySelector('.question');
     return div.firstElementChild;
   };
 
-  const divRespuestas = document.querySelector('.respuestas');
   
    const cardRespuestas = (correct_answer, incorrect_answers) => {
 

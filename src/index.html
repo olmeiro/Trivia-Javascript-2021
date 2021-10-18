@@ -47,7 +47,7 @@
           <div class="container-fluid">
             <img src="./assets/img/trivia2.jpg" alt="" width="300" height="80" class="d-inline-block align-text-top">
             <a class="navbar-brand" href="#" >
-              Vamos a jugar! <span id="jugador"></span>
+              Vamos a jugar! <span style="font-weight: 600; font-size: x-large;" id="jugador"></span>
             </a>
             <button class="btn btn-outline-success btn-lg"  data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" id="inicio">Empezar juego</button>
           </div>
@@ -131,14 +131,14 @@
                 </div>
                 <div class="card-body" id="card-body">
                   
-                  <div class="d-inline-flex justify-content-center question" id="question"></div>
+                  <div class="d-inline-flex justify-content-center question" id="question"><h1>Pregunta :</h1></div>
                   <div class="d-inline-flex justify-content-between">
-                    <div class="preguntas row respuestas" id="respuestas"></div>
+                    <div class="preguntas row respuestas" id="respuestas"><h1>Respuestas</h1></div>
                   </div>  
                 </div>
 
                 <div class="card-footer d-flex flex-column">
-                  <button type="button" class="btn btn-info btn-lg" id="siguiente" >Siguiente pregunta</button>
+                  <button type="button" class="btn btn-info btn-lg" id="siguiente" >Empezar</button>
                   <button type="button" class="btn btn-dark btn-lg mt-3" id="retiro" >Retiro Voluntario</button>
                 </div>
               </div>
@@ -151,10 +151,10 @@
             <div class="resultado col-2 mt-4">
               <h1>Resultados:</h1>
               <button type="button" class="btn btn-lg btn-primary" id="acumulado" data-acumulado>
-                Acumulado <span class="badge bg-secondary" id="textAcumulado">0</span>
+                Acumulado <span class="badge bg-secondary" id="textAcumulado"></span>
               </button>
               <button type="button" class="btn btn-primary mt-3" id="premioTotal" data-premioTotal>
-                Premio Total <span class="badge bg-success" id="textPremioTotal">0</span>
+                Premio Total <span class="badge bg-success" id="textPremioTotal"></span>
               </button>
           </div>
       </div>
