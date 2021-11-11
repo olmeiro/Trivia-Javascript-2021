@@ -1,25 +1,21 @@
+const divTituloPregunta = document.querySelector(".question");
+const divRespuestas = document.querySelector(".respuestas");
 
-const divTituloPregunta = document.querySelector('.question');
-const divRespuestas = document.querySelector('.respuestas');
+const tituloPregunta = (question) => {
+  const htmlTitleQuestion = `<h3>${question}</h3>`;
 
+  const div = document.createElement("div");
+  div.innerHTML = htmlTitleQuestion;
 
- const tituloPregunta = (question) => {
-    const htmlTitleQuestion = `<h3>${question}</h3>`;
-  
-    const div = document.createElement("div");
-    div.innerHTML = htmlTitleQuestion;
-  
-    divTituloPregunta.append(div.firstElementChild);
-  
-    return div.firstElementChild;
-  };
+  divTituloPregunta.append(div.firstElementChild);
 
-  
-   const cardRespuestas = (correct_answer, incorrect_answers) => {
+  return div.firstElementChild;
+};
 
-    const orden = Math.floor(Math.random() * (4 - 0) + 0);
-     
-      const htmlAnswerQuestion = `
+const cardRespuestas = (correct_answer, incorrect_answers) => {
+  const orden = Math.floor(Math.random() * (4 - 0) + 0);
+
+  const htmlAnswerQuestion = `
       <div class="d-inline-flex justify-content-between">
           <div class="preguntas row">
             <div class="col-6 mt-2 order-${orden}">
@@ -39,14 +35,13 @@ const divRespuestas = document.querySelector('.respuestas');
           </div>
       </div> 
       `;
-  
-    const div = document.createElement("div");
-    div.innerHTML = htmlAnswerQuestion;
-  
-    divRespuestas.append(div.firstElementChild);
-  
-    return div.firstElementChild;
-  };
 
+  const div = document.createElement("div");
+  div.innerHTML = htmlAnswerQuestion;
 
-  export {tituloPregunta, cardRespuestas};
+  divRespuestas.append(div.firstElementChild);
+
+  return div.firstElementChild;
+};
+
+export { tituloPregunta, cardRespuestas };

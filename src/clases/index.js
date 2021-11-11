@@ -1,11 +1,7 @@
-//Lugar centralizado de importaciones de clases
+import { Juego } from "./juego.class";
+import { Jugador } from "./jugador.class";
+import { Puntaje } from "./puntaje.class";
+import { Preguntas } from "./preguntas.class";
+import { Ronda } from "./ronda.class";
 
-import { Juego } from './juego.class';
-import { Jugador } from './jugador.class';
-import { Puntaje } from './puntaje.class';
-
-export {
-    Juego,
-    Jugador,
-    Puntaje
-}
+export { Juego, Jugador, Puntaje, Preguntas, Ronda };

@@ -1,19 +1,19 @@
-import { puntaje } from '../index';
+import { puntaje } from "../index";
 
-const spanJugador = document.getElementById('jugador');
-const inputNombre = document.getElementById('nombreJugador');
-const textAcumulado = document.getElementById('textAcumulado');
+const spanJugador = document.getElementById("jugador");
+const inputNombre = document.getElementById("nombreJugador");
+const textAcumulado = document.getElementById("textAcumulado");
 
-const btnSiguiente = document.getElementById('siguiente');
+const btnSiguiente = document.getElementById("siguiente");
 
-const textPremioTotal = document.querySelector('textPremioTotal');
+const textPremioTotal = document.querySelector("textPremioTotal");
 
-const divTituloPregunta = document.querySelector('.question');
-const divRespuestas = document.querySelector('.respuestas');
+const divTituloPregunta = document.querySelector(".question");
+const divRespuestas = document.querySelector(".respuestas");
 
 export function terminarJuego() {
   Swal.fire("Abandonas el juego. Pierdes el acumulado");
-  btnSiguiente.setAttribute('disabled', true);
+  btnSiguiente.setAttribute("disabled", true);
 
   divTituloPregunta.removeChild(divTituloPregunta.firstElementChild);
   divRespuestas.removeChild(divRespuestas.firstElementChild);

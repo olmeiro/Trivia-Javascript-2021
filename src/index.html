@@ -8,8 +8,6 @@
     <title>Sofka Trivia</title>
   </head>
   <body>
-    <!-- <img src="./assets/img/trivia2.jpg" alt="webpack-logo" /> -->
-
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -110,7 +108,7 @@
                   <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-historia" data-category="History" data-numero="23">Historia</button>
                   <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-deporte" data-category="Sports" data-numero="21">Deporte</button>
                   <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-animales" data-category="Animals" data-numero="27">Animales</button>
-                  <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-geo" data-category="Geography" data-numero="22">Animals</button>
+                  <button type="button" class="btn btn-outline-dark btn-category mt-3" id="btn-check-geo" data-category="Geography" data-numero="22">Geografía</button>
                 </div>
               </div>
             </div>
@@ -118,8 +116,11 @@
             <div class="col-8 mt-4" id="seccionPreguntas">
               <div class="card text-center card-pregunta">
 
+                <div class="card-header categoriaEnJuego">
+                  <h2>Categoria en juego</h2>
+                </div>
                 <div class="card-header">
-                  Elija una opción, sólo una es verdadera!
+                  <h5>Elija una opción, sólo una es verdadera!</h5>
                 </div>
                 
                 <div class="card-body" id="card-body">
@@ -141,9 +142,9 @@
               <button type="button" class="btn btn-lg btn-primary" id="acumulado" data-acumulado>
                 Acumulado <span class="badge bg-secondary textAcumulado" id="textAcumulado"></span>
               </button>
-              <button type="button" class="btn btn-primary mt-3" id="premioTotal" data-premioTotal>
+              <!-- <button type="button" class="btn btn-primary mt-3" id="premioTotal" data-premioTotal>
                 Premio Total <span class="badge bg-success textPremioTotal" id="textPremioTotal"></span>
-              </button>
+              </button> -->
           </div>
       </div>
     </container>

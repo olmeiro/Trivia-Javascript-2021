@@ -1,13 +1,22 @@
-const btnsCategorias = document.querySelectorAll('.btn-category');
+const btnsCategorias = document.querySelectorAll(".btn-category");
 
-export function apagarBtnCategoria(categoria){
+function apagarBtnCategoria(categoria) {
+  btnsCategorias.forEach((elem) => {
+    const numCategoria = elem.getAttribute("data-numero");
 
-    btnsCategorias.forEach( elem => {
-            
-        const numCategoria = elem.getAttribute('data-category');
-        
-        if(categoria === numCategoria){
-            elem.setAttribute('disabled', true);
-        }
-    });
+    if (categoria === parseInt(numCategoria)) {
+      elem.setAttribute("disabled", true);
+    }
+  });
 }
+
+function apagarBtnCategoriaNombre(categoria) {
+  btnsCategorias.forEach((elem) => {
+    const numCategoria = elem.getAttribute("data-category");
+    if (categoria === numCategoria) {
+      elem.setAttribute("disabled", true);
+    }
+  });
+}
+
+export { apagarBtnCategoria, apagarBtnCategoriaNombre };
